@@ -16,6 +16,8 @@ class RefactoringAgent:
         self.code_comparator = CodeComparator(assistant_manager)
         self.index = 0
         self.total_files = 0
+        self.passed_files = 0
+        self.failed_files = 0
         logging.debug("RefactoringAgent: RefactoringAgent initialized.")  # AI-GEN - CursorAI with GPT4
 
     def start_refactoring_process(self):
@@ -27,7 +29,19 @@ class RefactoringAgent:
             file_path = os.path.join(self.base_path, item["path"]) if self.base_path else item["path"]
             deprecated_method = item["deprecatedMethod"]
             logging.debug(f"RefactoringAgent: Processing file: {file_path} with deprecated method: {deprecated_method}")  # AI-GEN - CursorAI with GPT4
-            self.process_file(file_path, deprecated_method)  # Update method to accept deprecated_method as a parameter
+            success = self.process_file(file_path, deprecated_method)  # Update method to accept deprecated_method as a parameter
+            if success:
+                self.passed_files += 1  # AI-GEN - CursorAI with GPT4
+            else:
+                self.failed_files += 1  # AI-GEN - CursorAI with GPT4
+            self.index+=1
+        
+    def print_results(self):
+        """Prints the summary of the refactoring process."""
+        print(f"Total files processed: {self.index}")  # AI-GEN - CursorAI with GPT4
+        print(f"Total files attempted: {self.total_files}")  # AI-GEN - CursorAI with GPT4
+        print(f"Files successfully refactored: {self.passed_files}")  # AI-GEN - CursorAI with GPT4
+        print(f"Files failed to refactor: {self.failed_files}")  # AI-GEN - CursorAI with GPT4
 
     def process_file(self, file_path, deprecated_method):
         """Processes each file through the refactoring pipeline."""
@@ -66,6 +80,8 @@ class RefactoringAgent:
         if not refactoring_success:
             print(f"RefactoringAgent: Refactoring failed after {refactoring_attempts} attempts for {file_path}")  # AI-GEN - CursorAI with GPT4
             self.assistant_manager.cleanup_files()  # Clean up all files related to the thread
+
+        return refactoring_success
 
 
     def refactor_code(self, original_file_id, deprecated_method):

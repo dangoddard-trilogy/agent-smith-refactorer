@@ -73,6 +73,7 @@ def main():
         # Ensure cleanup_files is called regardless of success or failure
         assistant_manager.cleanup_files()  # AI-GEN - CursorAI with GPT4
         print("Refactor: Cleanup complete.")  # AI-GEN - CursorAI with GPT4
+        refactoring_agent.print_results()
 
 
 if __name__ == "__main__":
