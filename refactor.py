@@ -6,7 +6,6 @@ from assistant_manager import AssistantManager
 from refactoring_agent import RefactoringAgent
 
 def parse_arguments():
-    logging.debug("Refactor: Parsing command line arguments.")  # AI-GEN - CursorAI with GPT4
     parser = argparse.ArgumentParser(description="Automated Code Refactoring Tool")
     parser.add_argument(
         "--source-list",
@@ -48,14 +47,13 @@ def parse_arguments():
 
 def main():
     try:
-        logging.basicConfig(level=logging.WARN)  # AI-GEN - CursorAI with GPT4
         args = parse_arguments()
 
         # Configure logging based on the debug mode argument
         if args.debug:
-            logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+            logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
         else:
-            logging.basicConfig(level=logging.DEBUG)
+            logging.basicConfig(level=logging.WARN)
 
         print("Refactor: Initializing AssistantManager and RefactoringAgent.")  # AI-GEN - CursorAI with GPT4
         # Instantiate the AssistantManager with API key, Assistant ID, and Organization ID
@@ -71,7 +69,7 @@ def main():
         logging.error(f"Refactor: An error occurred: {e}")
     finally:
         # Ensure cleanup_files is called regardless of success or failure
-        assistant_manager.cleanup_files()  # AI-GEN - CursorAI with GPT4
+        assistant_manager.final_cleanup()  # AI-GEN - CursorAI with GPT4
         print("Refactor: Cleanup complete.")  # AI-GEN - CursorAI with GPT4
         refactoring_agent.print_results()
 

@@ -3,7 +3,7 @@ import sys
 import logging
 
 # Configure logging to output to the console at the DEBUG level
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.info, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 def main():

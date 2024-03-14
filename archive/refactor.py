@@ -11,7 +11,7 @@ def main():
     organization_id = 'org-OSdfkiKEtRAYM4FrIpVfXLLC'
     manager = AssistantManager(set_api_key, assistant_id, organization_id)  # AI-GEN - CursorAI with GPT4
 
-    thread_id = manager.create_thread()  # AI-GEN - CursorAI with GPT4
+    thread_id = manager.create_new_thread()  # AI-GEN - CursorAI with GPT4
     message = manager.create_message(thread_id)
     run = manager.create_run(thread_id)
 

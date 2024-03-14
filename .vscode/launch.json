@@ -12,7 +12,8 @@
             "console": "integratedTerminal",
             "args": [
                 "--source-list", "source-files.json",
-                "--base-path", "C:\\Users\\dnrg8\\Jive\\onprem9\\"
+                "--base-path", "C:\\Users\\dnrg8\\Jive\\onprem9\\",
+                "--debug"
             ] // AI-GEN - CursorAI with GPT4
         },
         {
