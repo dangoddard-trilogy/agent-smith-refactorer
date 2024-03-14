@@ -1,0 +1,11 @@
+{
+  "name": "agent-smith-poc",
+  "version": "0.1.0",
+  "description": "proof of concept",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,23 @@
+{
+  "deprecatedMethods": [
+    {"old": "org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper", "new": "org.springframework.jdbc.core.BeanPropertyRowMapper"},
+    {"old": "org.springframework.jdbc.core.simple.ParameterizedRowMapper", "new": "org.springframework.jdbc.core.RowMapper"},
+    {"old": "org.springframework.jdbc.core.simple.ParameterizedSingleColumnRowMapper", "new": "org.springframework.jdbc.core.SingleColumnRowMapper"},
+    {"old": "org.springframework.jdbc.support.lob.OracleLobHandler", "new": "org.springframework.jdbc.support.lob.DefaultLobHandler"}
+  ],
+    "refactoringDescription": {
+        "overview": "Review the entire source code to identify and replace all instances of specific deprecated Spring methods. The refactoring process should be meticulously planned to encompass every occurrence (both the full classpaths, and just the methods themselves without the full classpaths), including both direct usage and any more indirect or hidden uses within the code.",
+        "objectives": [
+            "Accurately replace the deprecated methods with their specified newer versions, adhering to the guidelines provided.",
+            "Preserve the original code's integrity and functionality, ensuring that the refactoring is limited strictly to the update of deprecated methods without modifying the logic or other aspects of the code not related to the specified changes.",
+            "The scope of the refactoring includes not only the method calls but also the import statements related to these deprecated methods. The goal is to ensure these changes seamlessly integrate with the original code, respecting its existing design patterns and coding standards."
+        ],
+        "strategy": [
+            "Methodically inspect the whole codebase for the specified deprecated methods.",
+            "Execute the necessary replacements in a way that closely aligns with the original use and intent behind each deprecated method usage."
+        ],
+        "execution": "Please proceed with the refactoring based on this plan, ensuring the replacements are made accurately and comprehensively, with an eye towards maintaining the structural and functional integrity of the original codebase. Adjustments should be strictly confined to updating the deprecated methods as detailed, without introducing additional changes to the code.",
+        "goal": "Keep in mind that the primary objective here is to modernize the code by replacing outdated method calls with their current counterparts, thereby enhancing compatibility and reliability without compromising the original logic or functionality."
+    }
+}
+  

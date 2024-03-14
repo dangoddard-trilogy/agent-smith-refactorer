@@ -1,0 +1,28 @@
+{
+  "deprecatedMethods": [
+    "org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper",
+    "org.springframework.jdbc.core.simple.ParameterizedRowMapper",
+    "org.springframework.jdbc.core.simple.ParameterizedSingleColumnRowMapper",
+    "org.springframework.jdbc.support.lob.OracleLobHandler"
+  ],
+    "refactoringDescription": {
+        "overview": "Review the entire source code to identify and replace all instances of specific deprecated Spring methods with Spring 5.x methods. The refactoring process should be meticulously planned to encompass every occurrence (both the full classpaths, and just the methods themselves without the full classpaths), including both direct usage and any more indirect or hidden uses within the code.",
+        "objectives": [
+            "Accurately replace the deprecated methods with their specified newer versions, adhering to the guidelines provided. Not all the specified deprecatedMethods may be used in this code, so carefully determine which ones exist and only refactor those. Don't try to refactor ones that don't exist.",
+            "Preserve the original code's integrity and functionality, ensuring that the refactoring is limited strictly to the update of deprecated methods without modifying the logic or other aspects of the code not related to the specified changes.",
+            "The scope of the refactoring includes not only the method calls but also the import statements related to these deprecated methods. The goal is to ensure these changes seamlessly integrate with the original code, respecting its existing design patterns and coding standards."
+        ],
+        "strategy": [
+            "Methodically inspect the whole codebase for the specified deprecated methods, using this high level approach:",
+            " 1. First determine which of the specified deprecatedMethods are used in the given source code. Be sure to check both the full classpaths and just the methods themselves without the classpath. Keep an internal list of the ones found.",
+            " 2. For each of the deprecatedMethods in your internal list:",
+            "  a. Methodically inspect the whole codebase for this specific deprecated method.",
+            "  b. Use the Objectives to plan the changes necessary.",
+            "  c. Execute the necessary replacements in a way that closely aligns with the original use and intent behind each deprecated method usage.",
+            " 3. Iterate through this process repeatedly until all deprecatedMethods have been refactored."
+        ],
+        "execution": "Please proceed with the refactoring based on this plan, ensuring the replacements are made accurately and comprehensively, with an eye towards maintaining the structural and functional integrity of the original codebase. Use Code Interpreter for this task",
+        "goal": "Keep in mind that the primary outcome here is to modernize the code by replacing outdated method calls with their current counterparts, thereby enhancing compatibility and reliability without compromising the original logic or functionality."
+    }
+}
+  

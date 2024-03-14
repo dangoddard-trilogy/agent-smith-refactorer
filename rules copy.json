@@ -1,0 +1,9 @@
+{
+  "deprecatedMethods": [
+    {"old": "org.springframework.jdbc.core.simple.ParameterizedSingleColumnRowMapper", "new": "org.springframework.jdbc.core.SingleColumnRowMapper"}
+  ],
+    "refactoringDescription": [
+        "Current codebase uses deprecated methods from Spring 4.x. Please refactor any of these defined methods within the code provided to Spring 5.x. The refactoring needs to be exhaustive, requiring a detailed examination of the whole file, not just the application of simple text replacements. You need to provide a strategy to ensure no lines or sections are missed inadvertently. But don't change any other code that is not related to this deprecated function or it's replacement."
+    ]
+}
+  

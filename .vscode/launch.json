@@ -1,0 +1,29 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File with Arguments",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "--source-list", "source-files.txt",
+                "--base-path", "C:\\Users\\dnrg8\\Jive\\onprem9\\"
+            ] // AI-GEN - CursorAI with GPT4
+        },
+        {
+            "name": "Python Unit Test",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}\\test_runner.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--test-path", "${workspaceFolder}\\tests"
+            ] // AI-GEN - CursorAI with GPT4
+        }
+    ]
+}

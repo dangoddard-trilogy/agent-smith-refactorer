@@ -1,0 +1,12 @@
+{
+    "deprecatedMethods": [
+      {"old": "org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper", "new": ""},
+      {"old": "org.springframework.jdbc.core.simple.ParameterizedRowMapper", "new": ""},
+      {"old": "org.springframework.jdbc.core.simple.ParameterizedSingleColumnRowMapper", "new": ""},
+      {"old": "org.springframework.jdbc.support.lob.OracleLobHandler", "new": ""}
+    ],
+    "refactoringDescription": [
+        "Current codebase uses deprecated methods from Spring 4.x. These need to be upgraded to Spring 5.x. In this refactoring, we are only looking at the deprecated methods specified here. Include the required imports for the new methods. Don't change any other methods even if they are deprecated."
+    ]
+}
+  
