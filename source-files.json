@@ -1,0 +1,6 @@
+[
+    {
+      "path": "core/src/main/java/com/jivesoftware/community/activity/popularity/dao/impl/PopularityDAOImpl.java",
+      "deprecatedMethod": "org.springframework.jdbc.core.simple.ParameterizedRowMapper"
+    }
+]

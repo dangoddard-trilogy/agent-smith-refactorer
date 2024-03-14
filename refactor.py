@@ -6,7 +6,7 @@ from assistant_manager import AssistantManager
 from refactoring_agent import RefactoringAgent
 
 def parse_arguments():
-    logging.info("Refactor: Parsing command line arguments.")  # AI-GEN - CursorAI with GPT4
+    logging.debug("Refactor: Parsing command line arguments.")  # AI-GEN - CursorAI with GPT4
     parser = argparse.ArgumentParser(description="Automated Code Refactoring Tool")
     parser.add_argument(
         "--source-list",
@@ -48,31 +48,31 @@ def parse_arguments():
 
 def main():
     try:
-        logging.basicConfig(level=logging.INFO)  # AI-GEN - CursorAI with GPT4
+        logging.basicConfig(level=logging.WARN)  # AI-GEN - CursorAI with GPT4
         args = parse_arguments()
 
         # Configure logging based on the debug mode argument
         if args.debug:
             logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
         else:
-            logging.basicConfig(level=logging.INFO)
+            logging.basicConfig(level=logging.DEBUG)
 
-        logging.info("Refactor: Initializing AssistantManager and RefactoringAgent.")  # AI-GEN - CursorAI with GPT4
+        print("Refactor: Initializing AssistantManager and RefactoringAgent.")  # AI-GEN - CursorAI with GPT4
         # Instantiate the AssistantManager with API key, Assistant ID, and Organization ID
         assistant_manager = AssistantManager(set_api_key=args.api_key, assistant_id=args.assistant_id, organization_id=args.organization_id)
         
         # Instantiate the RefactoringAgent with the path to the source list, the rules file, and the AssistantManager
         refactoring_agent = RefactoringAgent(files_list_path=args.source_list, rules_path=args.rules, assistant_manager=assistant_manager, base_path=args.base_path)
         
-        logging.info("Refactor: Starting the refactoring process.")  # AI-GEN - CursorAI with GPT4
+        print("Refactor: Starting the refactoring process.")  # AI-GEN - CursorAI with GPT4
         # Start the refactoring process
         refactoring_agent.start_refactoring_process()
     except Exception as e:
-        logging.error(f"Refactor: An error occurered: {e}")
+        logging.error(f"Refactor: An error occurred: {e}")
     finally:
         # Ensure cleanup_files is called regardless of success or failure
         assistant_manager.cleanup_files()  # AI-GEN - CursorAI with GPT4
-        logging.info("Refactor: Cleanup complete.")  # AI-GEN - CursorAI with GPT4
+        print("Refactor: Cleanup complete.")  # AI-GEN - CursorAI with GPT4
 
 
 if __name__ == "__main__":

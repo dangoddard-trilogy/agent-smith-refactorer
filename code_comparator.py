@@ -4,7 +4,7 @@ import logging  # AI-GEN - CursorAI with GPT4
 class CodeComparator:
     def __init__(self, assistant_manager):
         self.assistant_manager = assistant_manager
-        logging.info("CodeComparator: Initialized with assistant manager.")  # AI-GEN - CursorAI with GPT4
+        logging.debug("CodeComparator: Initialized with assistant manager.")  # AI-GEN - CursorAI with GPT4
 
     def compare(self, original_file_id, refactored_file_id, rules):
         """
@@ -18,13 +18,13 @@ class CodeComparator:
         Returns:
             bool: True if the refactoring is correct, False otherwise.
         """
-        logging.info(f"CodeComparator: Comparing original file ID {original_file_id} with refactored file ID {refactored_file_id} using given rules.")  # AI-GEN - CursorAI with GPT4
+        logging.debug(f"CodeComparator: Comparing original file ID {original_file_id} with refactored file ID {refactored_file_id} using given rules.")  # AI-GEN - CursorAI with GPT4
         # Construct a prompt for the AI to analyze the codes based on file IDs
         prompt = self._generate_analysis_prompt(original_file_id, refactored_file_id, rules)
         
         # Use the AssistantManager to get the analysis result
         analysis_result = self.assistant_manager.analyze_code(prompt, [original_file_id, refactored_file_id])
-        logging.info("CodeComparator: Analysis result obtained from assistant manager.")  # AI-GEN - CursorAI with GPT4
+        logging.debug("CodeComparator: Analysis result obtained from assistant manager.")  # AI-GEN - CursorAI with GPT4
         
         # Interpret the AI assistant's response to determine pass/fail
         return self._interpret_analysis_result(analysis_result)
@@ -45,7 +45,7 @@ class CodeComparator:
         Returns:
             str: The generated prompt for the AI.
         """
-        logging.info("CodeComparator: Generating analysis prompt for AI.")  # AI-GEN - CursorAI with GPT4
+        logging.debug("CodeComparator: Generating analysis prompt for AI.")  # AI-GEN - CursorAI with GPT4
         rules_descriptions = json.dumps(rules, indent=2)
         prompt = (
             f"Analyze the refactoring changes made from the original file (ID: {original_file_id}) "
@@ -96,11 +96,11 @@ class CodeComparator:
             bool: True if the analysis indicates the refactoring is correct, False otherwise. 
         
         """ 
-        logging.info("CodeComparator: Interpreting analysis result from AI.") # AI-GEN - CursorAI with GPT4 
+        logging.debug("CodeComparator: Interpreting analysis result from AI.") # AI-GEN - CursorAI with GPT4 
         
         cleaned_analysis_result = self._parse_analysis_result(analysis_result) # Clean the result string 
         
-        logging.info(f"CodeComparator: Analysis Message: {cleaned_analysis_result}")
+        logging.debug(f"CodeComparator: Analysis Message: {cleaned_analysis_result}")
 
         try: 
             analysis_result_json = json.loads(cleaned_analysis_result)  # Convert the cleaned string to a JSON object  # AI-GEN - CursorAI with GPT4

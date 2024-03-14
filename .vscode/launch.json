@@ -11,7 +11,7 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "args": [
-                "--source-list", "source-files.txt",
+                "--source-list", "source-files.json",
                 "--base-path", "C:\\Users\\dnrg8\\Jive\\onprem9\\"
             ] // AI-GEN - CursorAI with GPT4
         },
