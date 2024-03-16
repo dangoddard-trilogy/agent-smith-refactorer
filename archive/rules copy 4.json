@@ -1,0 +1,30 @@
+{
+  "prompt": "Please refactor the Java source code file identified by `{file_id}`. Your primary task is to locate all occurrences of the deprecated class or method `{shorthand_method_name}` (it will likely be imported with full classpath as `{deprecated_method}`), then update these to their corresponding Spring 5.x equivalents. This task involves both direct and indirect usages within the code, and extends to updating necessary import statements. Don't do a text-based search and replace, as the string `{shorthand_method_name}` may also be contained as part of another class or method name that should not be changed as part of this scope (for example, if we are refactoring a class named ASpecialClass, we would not count a class named ThisIsASpecialClass as part of this refactoring, as it is a different class, even if it is related by name or function).",
+  "instructions": [
+    {
+      "step": "Identification",
+      "detail": "Perform a text search the entire file for any usage of `{shorthand_method_name}`. This includes class uses and class method calls, but excludes import statements. Count how many occurrences there are excluding the import statements and store it as original_count."
+    },
+    {
+      "step": "Determine Refactoring Needed",
+      "detail": "For each identified instance, determine the correct refactoring for each use of `{shorthand_method_name}`."
+    },
+    {
+      "step": "Execute Refactoring",
+      "detail": "Refactor each instance with the identified refactoring scope. Ensure the refactoring is done in a way that matches the original method's intent and functionality (don't change the logic)."
+    },
+    {
+      "step": "Update Import Statements",
+      "detail": "Along with class or method refactoring, update any relevant import statements to reflect changes made to class or method usages. Remove any duplicate imports for `{deprecated_method}` and `{shorthand_method_name}`"
+    },
+    {
+      "step": "Preserve Code Integrity",
+      "detail": "Make all changes with care to maintain the original code's logic and functionality. The refactoring should solely focus on updating deprecated classes or methods to their new counterparts without altering other aspects of the code."
+    },
+    {
+      "step": "Comprehensive Review",
+      "detail": "After refactoring, review the code to ensure all instances of `{shorthand_method_name}` have been updated appropriately, and the code operates as expected. Count how many occurrences of the new class or method, excluding import statements and store this value as new_count. Compare new_count to original_count. It should be equal, otherwise this is not a complete refactoring and you should try again."
+    }
+  ],
+  "conclusion": "Proceed with these steps meticulously to ensure the code is modernized correctly while keeping its original functionality intact."
+}

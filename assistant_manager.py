@@ -164,13 +164,13 @@ class AssistantManager:
         else:
             logging.error(f"AssistantManager: Some files could not be deleted: {self.file_ids}")  # AI-GEN - CursorAI with GPT4
 
-    def suggest_refactoring(self, original_file_id, rules, deprecated_method):
+    def suggest_refactoring(self, original_file_id, rules, deprecated_method, refactoring_attempts):
         if not self.thread_id:
             logging.error("AssistantManager: No thread_id set before calling suggest_refactoring.")  # AI-GEN - CursorAI with GPT4
             return None
         """Initiates and monitors the refactoring process."""
         logging.info("AssistantManager: Starting refactoring process...")  # AI-GEN - CursorAI with GPT4
-        prompt = self._construct_refactoring_prompt(original_file_id, rules, deprecated_method)
+        prompt = self._construct_refactoring_prompt(original_file_id, rules, deprecated_method, refactoring_attempts)
         self.create_message(prompt, file_ids=[original_file_id])
         run = self.create_run()
 
@@ -185,16 +185,18 @@ class AssistantManager:
         if run.status == 'completed':
             logging.info("AssistantManager: Refactoring process completed.")  # AI-GEN - CursorAI with GPT4
             messages = self.list_messages()
-            
+
+            # also log the response from the AI tool
+            logging.info(f"AssistantManager: AI Response: {messages.data[0].content}")            
+
             # Since messages.data[0] is the latest message, check it for file_ids
             if messages.data and messages.data[0].file_ids:
-                # also log the response from the AI tool
-                logging.info(f"AssistantManager: AI Response: {messages.data[0].content}")
+
                 # Assuming the first file ID in the latest message is the refactored file
                 refactored_file_id = messages.data[0].file_ids[0]
                 if refactored_file_id != original_file_id:
                     # content = self.download_file(refactored_file_id)
-                    logging.info("AssistantManager: Refactored file_id retrieved.")  # AI-GEN - CursorAI with GPT4
+                    logging.info(f"AssistantManager: Refactored file_id retrieved: {refactored_file_id}")  # AI-GEN - CursorAI with GPT4
                     return refactored_file_id
             else:
                 logging.info("AssistantManager: No refactored file found.")  # AI-GEN - CursorAI with GPT4
@@ -203,9 +205,27 @@ class AssistantManager:
             logging.error(f"AssistantManager: Refactoring failed or was cancelled: {run.status}")  # AI-GEN - CursorAI with GPT4
             return None
 
-    def _construct_refactoring_prompt(self, original_file_id, rules, deprecated_method):
-        """Constructs a detailed prompt or command for the assistant to refactor the code."""
-        prompt = f"Please refactor all instances of method {deprecated_method} in file {original_file_id} following these rules: {rules}"
+    def _construct_refactoring_prompt(self, original_file_id, rules, deprecated_method, refactoring_attempts):
+        """Constructs a detailed prompt or command for the assistant to refactor the code using the new JSON rules template."""
+        # Extract the shorthand method name from the full classpath
+        shorthand_method_name = self._extract_method_name(deprecated_method)  # AI-GEN - CursorAI with GPT4
+        
+        # set the rerun_notice to nothing by default
+        rerun_notice = ""
+        # if it's a rerun, then let the agent know. A new file_id must be written or we won't detect it.
+        if refactoring_attempts > 0:
+            rerun_notice = f"Comparison found that refactoring was not completed correctly. This is attempt {refactoring_attempts+1}. Please refactor again and create a new file_id and link in your response."
+        
+        # Construct the detailed prompt using the rules dictionary
+        prompt = rules["prompt"].format(file_id=original_file_id, deprecated_method=deprecated_method, shorthand_method_name=shorthand_method_name, rerun_notice=rerun_notice)  # AI-GEN - CursorAI with GPT4
+        
+        # Append instructions to the prompt
+        for instruction in rules["instructions"]:
+            prompt += f"\n\n{instruction['step']}: {instruction['detail'].format(deprecated_method=deprecated_method, shorthand_method_name=shorthand_method_name)}"  # AI-GEN - CursorAI with GPT4
+        
+        # Append conclusion to the prompt
+        prompt += f"\n\n{rules['conclusion']}"  # AI-GEN - CursorAI with GPT4
+
         logging.info(f"AssistantManager: Refactoring prompt constructed: {prompt}")  # AI-GEN - CursorAI with GPT4
         return prompt
     
@@ -246,3 +266,14 @@ class AssistantManager:
         else:
             logging.error(f"AssistantManager: Analysis failed or was cancelled: {run.status}")  # AI-GEN - CursorAI with GPT4
             return "Analysis failed or was cancelled."
+        
+    def _extract_method_name(self, full_classpath):
+        """Extracts the shorthand method name from a full classpath.
+        Parameters:
+            full_classpath (str): The full classpath of the method, e.g., 'org.springframework.jdbc.core.simple.ParameterizedRowMapper'.
+        Returns:
+            str: The shorthand method name, e.g., 'ParameterizedRowMapper'.
+        """
+        # Split the full classpath by '.' and return the last element as the shorthand method name
+        return full_classpath.split('.')[-1]  # AI-GEN - CursorAI with GPT4
+

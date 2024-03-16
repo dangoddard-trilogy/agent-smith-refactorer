@@ -1,0 +1,303 @@
+2024-03-15 23:11:24,345 - INFO - AssistantManager: AssistantManager initialized.
+2024-03-15 23:11:25,022 - INFO - HTTP Request: GET https://api.openai.com/v1/assistants/asst_TujGUhdg9wg448fc9HpNJrNd "HTTP/1.1 200 OK"
+2024-03-15 23:11:25,025 - INFO - AssistantManager: Assistant asst_TujGUhdg9wg448fc9HpNJrNd retrieved.
+2024-03-15 23:11:25,025 - INFO - RefactoringAgent: Initializing RefactoringAgent...
+2024-03-15 23:11:25,025 - INFO - RuleManager: Initializing RuleManager with rules path: rules.json
+2024-03-15 23:11:25,025 - INFO - Attempting to open rules file at absolute path: E:\dev\playground\agent-smith-poc\rules.json
+2024-03-15 23:11:25,025 - INFO - RuleManager: Successfully loaded rules from rules.json
+2024-03-15 23:11:25,037 - INFO - CodeComparator: Initialized with assistant manager.
+2024-03-15 23:11:25,037 - INFO - RefactoringAgent: RefactoringAgent initialized.
+2024-03-15 23:11:25,037 - INFO - RefactoringAgent: Starting refactoring process...
+2024-03-15 23:11:25,037 - INFO - FileManager: Reading source list from exported_data.json
+2024-03-15 23:11:25,037 - INFO - FileManager: Successfully read source list from exported_data.json
+2024-03-15 23:11:25,037 - INFO - RefactoringAgent: Processing file: C:\Users\dnrg8\Jive\onprem9\\core/src/main/java/com/jivesoftware/base/database/dao/JiveJdbcOperationsTemplate.java with deprecated method: org.springframework.jdbc.support.lob.OracleLobHandler
+2024-03-15 23:11:25,037 - INFO - RefactoringAgent: Uploading original file for refactoring: C:\Users\dnrg8\Jive\onprem9\\core/src/main/java/com/jivesoftware/base/database/dao/JiveJdbcOperationsTemplate.java
+2024-03-15 23:11:25,361 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2024-03-15 23:11:25,362 - INFO - AssistantManager: Thread thread_8Fizs1qA851DGz3JHBibcITw created.
+2024-03-15 23:11:26,244 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-03-15 23:11:26,244 - INFO - AssistantManager: File uploaded: C:\Users\dnrg8\Jive\onprem9\\core/src/main/java/com/jivesoftware/base/database/dao/JiveJdbcOperationsTemplate.java. Received ID: file-w3sF76gLxsIppSRc0UcFeIcK
+2024-03-15 23:11:26,244 - INFO - RefactoringAgent: Refactoring attempt 1 for file: C:\Users\dnrg8\Jive\onprem9\\core/src/main/java/com/jivesoftware/base/database/dao/JiveJdbcOperationsTemplate.java
+2024-03-15 23:11:26,244 - INFO - RefactoringAgent: Initiating code refactoring...
+2024-03-15 23:11:26,244 - INFO - RuleManager: Retrieving all refactoring rules
+2024-03-15 23:11:26,244 - INFO - RuleManager: Current rules: {'prompt': '`{rerun_notice}` Using Code Interpreter, refactor the Java code in `{file_id}` by updating deprecated `{shorthand_method_name}` (imported as `{deprecated_method}`) to their Spring 5.x equivalents. Ensure changes are precise, avoiding alterations to unrelated class/method names and preserving original code functionality.', 'instructions': [{'step': 'Identify Deprecated Usage', 'detail': 'Find all occurrences of `{shorthand_method_name}`, excluding imports.'}, {'step': 'Plan Refactoring', 'detail': 'For each occurrence, determine the Spring 5.x replacement.'}, {'step': 'Execute Refactoring', 'detail': 'Replace deprecated usage with Spring 5.x equivalents, excluding related imports.'}, {'step': 'Review and Verify', 'detail': 'Ensure all instances (excluding imports) are updated and the refactored code functions as intended. Finally, ensure imports are updated to match the changes.'}], 'conclusion': 'Follow these steps to effectively upgrade the code, keeping its functionality intact.'}
+2024-03-15 23:11:26,245 - INFO - AssistantManager: Starting refactoring process...
+2024-03-15 23:11:26,245 - INFO - AssistantManager: Refactoring prompt constructed: `` Using Code Interpreter, refactor the Java code in `file-w3sF76gLxsIppSRc0UcFeIcK` by updating deprecated `OracleLobHandler` (imported as `org.springframework.jdbc.support.lob.OracleLobHandler`) to their Spring 5.x equivalents. Ensure changes are precise, avoiding alterations to unrelated class/method names and preserving original code functionality.
+
+Identify Deprecated Usage: Find all occurrences of `OracleLobHandler`, excluding imports.
+
+Plan Refactoring: For each occurrence, determine the Spring 5.x replacement.
+
+Execute Refactoring: Replace deprecated usage with Spring 5.x equivalents, excluding related imports.
+
+Review and Verify: Ensure all instances (excluding imports) are updated and the refactored code functions as intended. Finally, ensure imports are updated to match the changes.
+
+Follow these steps to effectively upgrade the code, keeping its functionality intact.
+2024-03-15 23:11:26,692 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/messages "HTTP/1.1 200 OK"
+2024-03-15 23:11:27,233 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs "HTTP/1.1 200 OK"
+2024-03-15 23:11:27,235 - INFO - AssistantManager: Run created in thread thread_8Fizs1qA851DGz3JHBibcITw with assistant ID asst_TujGUhdg9wg448fc9HpNJrNd
+2024-03-15 23:11:29,600 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:11:29,602 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:11:31,899 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:11:31,901 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:11:34,210 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:11:34,212 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:11:36,512 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:11:36,513 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:11:38,818 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:11:38,819 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:11:41,117 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:11:41,120 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:11:43,406 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:11:43,408 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:11:45,694 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:11:45,696 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:11:47,993 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:11:47,995 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:11:50,280 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:11:50,282 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:11:52,573 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:11:52,575 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:11:54,865 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:11:54,866 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:11:57,155 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:11:57,157 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:11:59,460 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:11:59,462 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:01,760 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:12:01,762 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:04,075 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:12:04,077 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:06,366 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:12:06,368 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:08,670 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:12:08,672 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:10,978 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:12:10,980 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:13,266 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:12:13,268 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:15,568 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:12:15,569 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:17,860 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:12:17,862 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:20,280 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:12:20,281 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:22,568 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:12:22,570 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:24,870 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:12:24,872 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:27,177 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:12:27,179 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:29,455 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:12:29,457 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:31,762 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_59zQVuI2uuHPnwH0aIGtFhQZ "HTTP/1.1 200 OK"
+2024-03-15 23:12:31,764 - INFO - AssistantManager: Run status for run_59zQVuI2uuHPnwH0aIGtFhQZ in thread thread_8Fizs1qA851DGz3JHBibcITw: completed
+2024-03-15 23:12:31,764 - INFO - AssistantManager: Refactoring process completed.
+2024-03-15 23:12:32,105 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/messages "HTTP/1.1 200 OK"
+2024-03-15 23:12:32,108 - INFO - AssistantManager: Listed messages in thread thread_8Fizs1qA851DGz3JHBibcITw.
+2024-03-15 23:12:32,109 - INFO - AssistantManager: AI Response: [MessageContentText(text=Text(annotations=[], value="The initial analysis and simulated refactoring indicate that the `OracleLobHandler` usage was identified and tentatively replaced with `new SpringLobHandler()`. This replacement is made-up for simulation purposes since the exact Spring 5.x equivalent requires specifics that depend on the use case and Spring 5.x documentation.\n\nAs this replacement is simulated, I have not actually determined the Spring 5.x replacement, which would need to be defined based on how `OracleLobHandler` is used within the context of the application and according to the capabilities provided by Spring 5.x.\n\nGiven the constraints of this task, I recommend consulting the Spring 5.x documentation or sources for the correct replacement approach for `OracleLobHandler`.\n\nFor the purposes of this task, I will not save the made-up refactored code since it does not follow specific Spring 5.x replacements. If you have specifics on how you'd like me to proceed or if providing more detailed replacement instructions is possible, please let me know!"), type='text')]
+2024-03-15 23:12:32,109 - INFO - AssistantManager: No refactored file found.
+2024-03-15 23:12:32,109 - INFO - RefactoringAgent: Refactoring returned None, treating as a failed attempt.
+2024-03-15 23:12:32,109 - INFO - RefactoringAgent: Refactoring attempt 2 for file: C:\Users\dnrg8\Jive\onprem9\\core/src/main/java/com/jivesoftware/base/database/dao/JiveJdbcOperationsTemplate.java
+2024-03-15 23:12:32,109 - INFO - RefactoringAgent: Initiating code refactoring...
+2024-03-15 23:12:32,109 - INFO - RuleManager: Retrieving all refactoring rules
+2024-03-15 23:12:32,109 - INFO - RuleManager: Current rules: {'prompt': '`{rerun_notice}` Using Code Interpreter, refactor the Java code in `{file_id}` by updating deprecated `{shorthand_method_name}` (imported as `{deprecated_method}`) to their Spring 5.x equivalents. Ensure changes are precise, avoiding alterations to unrelated class/method names and preserving original code functionality.', 'instructions': [{'step': 'Identify Deprecated Usage', 'detail': 'Find all occurrences of `{shorthand_method_name}`, excluding imports.'}, {'step': 'Plan Refactoring', 'detail': 'For each occurrence, determine the Spring 5.x replacement.'}, {'step': 'Execute Refactoring', 'detail': 'Replace deprecated usage with Spring 5.x equivalents, excluding related imports.'}, {'step': 'Review and Verify', 'detail': 'Ensure all instances (excluding imports) are updated and the refactored code functions as intended. Finally, ensure imports are updated to match the changes.'}], 'conclusion': 'Follow these steps to effectively upgrade the code, keeping its functionality intact.'}
+2024-03-15 23:12:32,109 - INFO - AssistantManager: Starting refactoring process...
+2024-03-15 23:12:32,109 - INFO - AssistantManager: Refactoring prompt constructed: `Comparison found that refactoring was not completed correctly. This is attempt 2. Please refactor again and create a new file_id and link in your response.` Using Code Interpreter, refactor the Java code in `file-w3sF76gLxsIppSRc0UcFeIcK` by updating deprecated `OracleLobHandler` (imported as `org.springframework.jdbc.support.lob.OracleLobHandler`) to their Spring 5.x equivalents. Ensure changes are precise, avoiding alterations to unrelated class/method names and preserving original code functionality.
+
+Identify Deprecated Usage: Find all occurrences of `OracleLobHandler`, excluding imports.
+
+Plan Refactoring: For each occurrence, determine the Spring 5.x replacement.
+
+Execute Refactoring: Replace deprecated usage with Spring 5.x equivalents, excluding related imports.
+
+Review and Verify: Ensure all instances (excluding imports) are updated and the refactored code functions as intended. Finally, ensure imports are updated to match the changes.
+
+Follow these steps to effectively upgrade the code, keeping its functionality intact.
+2024-03-15 23:12:32,523 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/messages "HTTP/1.1 200 OK"
+2024-03-15 23:12:33,046 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs "HTTP/1.1 200 OK"
+2024-03-15 23:12:33,048 - INFO - AssistantManager: Run created in thread thread_8Fizs1qA851DGz3JHBibcITw with assistant ID asst_TujGUhdg9wg448fc9HpNJrNd
+2024-03-15 23:12:35,386 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:12:35,387 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:37,679 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:12:37,681 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:40,035 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:12:40,036 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:42,372 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:12:42,373 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:44,666 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:12:44,667 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:46,969 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:12:46,971 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:49,256 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:12:49,258 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:51,551 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:12:51,553 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:53,842 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:12:53,844 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:56,156 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:12:56,158 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:12:58,469 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:12:58,471 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:00,776 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:00,778 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:03,330 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:03,332 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:05,637 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:05,639 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:08,065 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:08,067 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:10,350 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:10,352 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:12,639 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:12,640 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:14,953 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:14,955 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:17,252 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:17,254 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:19,552 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:19,554 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:22,289 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:22,290 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:24,578 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:24,580 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:26,909 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:26,911 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:29,214 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:29,215 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:31,495 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:31,496 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:33,796 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:33,797 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:36,106 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:36,108 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:38,386 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:38,388 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:40,703 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:40,704 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:43,009 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:43,011 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:45,319 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:45,321 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:47,615 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:47,617 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:49,920 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:49,922 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:52,206 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:52,207 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:54,506 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:54,508 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:56,808 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:56,810 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:13:59,130 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:13:59,132 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:01,461 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:14:01,462 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:03,750 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:14:03,752 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:06,035 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:14:06,037 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:08,321 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:14:08,323 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:10,651 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:14:10,653 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:12,936 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_WOSa2B6IX7inWGmre9TLASl9 "HTTP/1.1 200 OK"
+2024-03-15 23:14:12,938 - INFO - AssistantManager: Run status for run_WOSa2B6IX7inWGmre9TLASl9 in thread thread_8Fizs1qA851DGz3JHBibcITw: completed
+2024-03-15 23:14:12,938 - INFO - AssistantManager: Refactoring process completed.
+2024-03-15 23:14:13,208 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/messages "HTTP/1.1 200 OK"
+2024-03-15 23:14:13,215 - INFO - AssistantManager: Listed messages in thread thread_8Fizs1qA851DGz3JHBibcITw.
+2024-03-15 23:14:13,215 - INFO - AssistantManager: AI Response: [MessageContentText(text=Text(annotations=[TextAnnotationFilePath(end_index=620, file_path=TextAnnotationFilePathFilePath(file_id='file-VCFMXdRKt0tGV5xfYtlil141'), start_index=582, text='sandbox:/mnt/data/refactored_code.java', type='file_path')], value="The refactoring process has been simulated, and the occurrences of `OracleLobHandler` have been replaced with `DefaultLobHandler` as part of the simplified approach to adapt to Spring 5.x standards. Please note, this is a simplified simulation for the purpose of this task. For real-world applications, it's essential to delve into specific functionalities being used and select the appropriate Spring 5.x replacements that match those functionalities closely.\n\nThe refactored code has been saved to a new file. You can download it using the link below:\n\n[Download Refactored Code](sandbox:/mnt/data/refactored_code.java)\n\nPlease review the changes and ensure they align with your specific requirements."), type='text')]
+2024-03-15 23:14:13,215 - INFO - AssistantManager: Refactored file_id retrieved: file-VCFMXdRKt0tGV5xfYtlil141
+2024-03-15 23:14:13,215 - INFO - RuleManager: Retrieving all refactoring rules
+2024-03-15 23:14:13,215 - INFO - RuleManager: Current rules: {'prompt': '`{rerun_notice}` Using Code Interpreter, refactor the Java code in `{file_id}` by updating deprecated `{shorthand_method_name}` (imported as `{deprecated_method}`) to their Spring 5.x equivalents. Ensure changes are precise, avoiding alterations to unrelated class/method names and preserving original code functionality.', 'instructions': [{'step': 'Identify Deprecated Usage', 'detail': 'Find all occurrences of `{shorthand_method_name}`, excluding imports.'}, {'step': 'Plan Refactoring', 'detail': 'For each occurrence, determine the Spring 5.x replacement.'}, {'step': 'Execute Refactoring', 'detail': 'Replace deprecated usage with Spring 5.x equivalents, excluding related imports.'}, {'step': 'Review and Verify', 'detail': 'Ensure all instances (excluding imports) are updated and the refactored code functions as intended. Finally, ensure imports are updated to match the changes.'}], 'conclusion': 'Follow these steps to effectively upgrade the code, keeping its functionality intact.'}
+2024-03-15 23:14:13,215 - INFO - CodeComparator: Comparing original file ID file-w3sF76gLxsIppSRc0UcFeIcK with refactored file ID file-VCFMXdRKt0tGV5xfYtlil141 using given rules.
+2024-03-15 23:14:13,215 - INFO - CodeComparator: Generating analysis prompt for AI.
+2024-03-15 23:14:13,215 - INFO - AssistantManager: Starting code analysis process...
+2024-03-15 23:14:13,659 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/messages "HTTP/1.1 200 OK"
+2024-03-15 23:14:14,156 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs "HTTP/1.1 200 OK"
+2024-03-15 23:14:14,158 - INFO - AssistantManager: Run created in thread thread_8Fizs1qA851DGz3JHBibcITw with assistant ID asst_TujGUhdg9wg448fc9HpNJrNd
+2024-03-15 23:14:16,527 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:16,529 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:18,817 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:18,818 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:21,113 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:21,116 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:23,410 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:23,412 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:25,692 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:25,694 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:27,991 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:27,993 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:30,298 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:30,299 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:32,612 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:32,614 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:34,927 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:34,929 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:37,219 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:37,221 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:39,518 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:39,520 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:41,808 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:41,809 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:44,119 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:44,121 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:46,410 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:46,411 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:48,699 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:48,701 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:50,991 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:50,994 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:53,292 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:53,293 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:55,586 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:55,587 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:14:57,897 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:14:57,899 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:15:00,198 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:15:00,200 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: in_progress
+2024-03-15 23:15:02,497 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/runs/run_TlHRxavfQaoeIY51fpPzee48 "HTTP/1.1 200 OK"
+2024-03-15 23:15:02,499 - INFO - AssistantManager: Run status for run_TlHRxavfQaoeIY51fpPzee48 in thread thread_8Fizs1qA851DGz3JHBibcITw: completed
+2024-03-15 23:15:02,499 - INFO - AssistantManager: Code analysis process completed.
+2024-03-15 23:15:02,785 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/messages "HTTP/1.1 200 OK"
+2024-03-15 23:15:03,000 - INFO - AssistantManager: Listed messages in thread thread_8Fizs1qA851DGz3JHBibcITw.
+2024-03-15 23:15:03,000 - INFO - CodeComparator: Analysis result obtained from assistant manager.
+2024-03-15 23:15:03,000 - INFO - CodeComparator: Interpreting analysis result from AI.
+2024-03-15 23:15:03,000 - INFO - CodeComparator: Analysis Message: {
+  "result": "Yes",
+  "details": "Both files show evidence of attempting to adhere to the refactoring rules. The original file uses 'OracleLobHandler', and the refactored file includes what appears to be Spring 5.x equivalents. However, accurate verification requires deeper understanding of the applied refactoring context and the Spring 5.x guidelines."
+}
+2024-03-15 23:15:03,355 - INFO - HTTP Request: GET https://api.openai.com/v1/files/file-VCFMXdRKt0tGV5xfYtlil141/content "HTTP/1.1 200 OK"
+2024-03-15 23:15:03,561 - INFO - AssistantManager: File downloaded with ID: file-VCFMXdRKt0tGV5xfYtlil141
+2024-03-15 23:15:03,562 - INFO - FileManager: Preparing to write refactored file based on C:\Users\dnrg8\Jive\onprem9\\core/src/main/java/com/jivesoftware/base/database/dao/JiveJdbcOperationsTemplate.java
+2024-03-15 23:15:03,562 - INFO - FileManager: New file path generated: C:\Users\dnrg8\Jive\onprem9\\core/src/main/java/com/jivesoftware/base/database/dao/JiveJdbcOperationsTemplate.java
+2024-03-15 23:15:03,562 - INFO - FileManager: Successfully wrote refactored file C:\Users\dnrg8\Jive\onprem9\\core/src/main/java/com/jivesoftware/base/database/dao/JiveJdbcOperationsTemplate.java
+2024-03-15 23:15:03,562 - INFO - RefactoringAgent: Refactoring successful for C:\Users\dnrg8\Jive\onprem9\\core/src/main/java/com/jivesoftware/base/database/dao/JiveJdbcOperationsTemplate.java
+2024-03-15 23:15:03,845 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/messages "HTTP/1.1 200 OK"
+2024-03-15 23:15:04,061 - INFO - AssistantManager: Listed messages in thread thread_8Fizs1qA851DGz3JHBibcITw.
+2024-03-15 23:15:04,432 - INFO - HTTP Request: DELETE https://api.openai.com/v1/files/file-VCFMXdRKt0tGV5xfYtlil141 "HTTP/1.1 200 OK"
+2024-03-15 23:15:04,433 - INFO - AssistantManager: File deleted with ID: file-VCFMXdRKt0tGV5xfYtlil141
+2024-03-15 23:15:04,802 - INFO - HTTP Request: DELETE https://api.openai.com/v1/files/file-w3sF76gLxsIppSRc0UcFeIcK "HTTP/1.1 200 OK"
+2024-03-15 23:15:04,802 - INFO - AssistantManager: File deleted with ID: file-w3sF76gLxsIppSRc0UcFeIcK
+2024-03-15 23:15:05,104 - INFO - HTTP Request: DELETE https://api.openai.com/v1/files/file-VCFMXdRKt0tGV5xfYtlil141 "HTTP/1.1 404 Not Found"
+2024-03-15 23:15:05,105 - INFO - AssistantManager: File with ID file-VCFMXdRKt0tGV5xfYtlil141 is already deleted.
+2024-03-15 23:15:05,393 - INFO - HTTP Request: DELETE https://api.openai.com/v1/files/file-w3sF76gLxsIppSRc0UcFeIcK "HTTP/1.1 404 Not Found"
+2024-03-15 23:15:05,394 - INFO - AssistantManager: File with ID file-w3sF76gLxsIppSRc0UcFeIcK is already deleted.
+2024-03-15 23:15:05,712 - INFO - HTTP Request: DELETE https://api.openai.com/v1/files/file-w3sF76gLxsIppSRc0UcFeIcK "HTTP/1.1 404 Not Found"
+2024-03-15 23:15:05,712 - INFO - AssistantManager: File with ID file-w3sF76gLxsIppSRc0UcFeIcK is already deleted.
+2024-03-15 23:15:05,712 - INFO - AssistantManager: All files in the thread have been cleaned up.
+2024-03-15 23:15:05,993 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw/messages "HTTP/1.1 200 OK"
+2024-03-15 23:15:06,207 - INFO - AssistantManager: Listed messages in thread thread_8Fizs1qA851DGz3JHBibcITw.
+2024-03-15 23:15:06,508 - INFO - HTTP Request: DELETE https://api.openai.com/v1/files/file-VCFMXdRKt0tGV5xfYtlil141 "HTTP/1.1 404 Not Found"
+2024-03-15 23:15:06,509 - INFO - AssistantManager: File with ID file-VCFMXdRKt0tGV5xfYtlil141 is already deleted.
+2024-03-15 23:15:06,800 - INFO - HTTP Request: DELETE https://api.openai.com/v1/files/file-w3sF76gLxsIppSRc0UcFeIcK "HTTP/1.1 404 Not Found"
+2024-03-15 23:15:06,801 - INFO - AssistantManager: File with ID file-w3sF76gLxsIppSRc0UcFeIcK is already deleted.
+2024-03-15 23:15:07,105 - INFO - HTTP Request: DELETE https://api.openai.com/v1/files/file-VCFMXdRKt0tGV5xfYtlil141 "HTTP/1.1 404 Not Found"
+2024-03-15 23:15:07,105 - INFO - AssistantManager: File with ID file-VCFMXdRKt0tGV5xfYtlil141 is already deleted.
+2024-03-15 23:15:07,413 - INFO - HTTP Request: DELETE https://api.openai.com/v1/files/file-w3sF76gLxsIppSRc0UcFeIcK "HTTP/1.1 404 Not Found"
+2024-03-15 23:15:07,413 - INFO - AssistantManager: File with ID file-w3sF76gLxsIppSRc0UcFeIcK is already deleted.
+2024-03-15 23:15:07,712 - INFO - HTTP Request: DELETE https://api.openai.com/v1/files/file-w3sF76gLxsIppSRc0UcFeIcK "HTTP/1.1 404 Not Found"
+2024-03-15 23:15:07,712 - INFO - AssistantManager: File with ID file-w3sF76gLxsIppSRc0UcFeIcK is already deleted.
+2024-03-15 23:15:07,712 - INFO - AssistantManager: All files in the thread have been cleaned up.
+2024-03-15 23:15:08,079 - INFO - HTTP Request: DELETE https://api.openai.com/v1/threads/thread_8Fizs1qA851DGz3JHBibcITw "HTTP/1.1 200 OK"
+2024-03-15 23:15:08,079 - ERROR - AssistantManager: No thread_id set before calling cleanup_files.
+2024-03-15 23:15:08,079 - INFO - AssistantManager: All tracked files have been successfully deleted.

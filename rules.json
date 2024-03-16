@@ -1,17 +1,22 @@
 {
-  "refactoringDescription": {
-      "overview": "Review the source code file to identify and replace all instances of the specific deprecated Spring method 'deprecatedMethod' with its Spring 5.x counterpart. The refactoring process should be meticulously executed to cover every occurrence of the deprecated method, including both direct usage and any more indirect or hidden uses within the code. Make sure you check for both the full classpath and the individual method without the class path.",
-      "objectives": [
-        "Accurately replace all uses of the deprecated method with the required newer version, adhering to the guidelines provided.",
-        "Preserve the original code's integrity and functionality, ensuring that the refactoring is limited strictly to the update of deprecated methods without modifying the logic or other aspects of the code not related to the specified changes.",
-        "The scope of the refactoring includes not only the method calls but also the import statements related to these deprecated methods. The goal is to ensure these changes seamlessly integrate with the original code, respecting its existing design patterns and coding standards."
-    ],
-    "strategy": [
-        "Methodically inspect the whole codebase for uses of the specified deprecated method. There is likely more than one use, so please be very exhaustive in your inspection.",
-        "Execute the necessary replacements in a way that closely aligns with the original use and intent behind each deprecated method usage.",
-        "Additionally, update the import to replace the deprecated method with the new version."
-    ],
-    "execution": "Please proceed with the refactoring based on this plan, ensuring the replacements are made accurately and comprehensively, with an eye towards maintaining the structural and functional integrity of the original codebase. Adjustments should be strictly confined to updating the deprecated methods as detailed, without introducing additional changes to the code.",
-    "goal": "Keep in mind that the primary objective here is to modernize the code by replacing outdated method calls with their current counterparts, thereby enhancing compatibility and reliability without compromising the original logic or functionality."
-  }
+  "prompt": "`{rerun_notice}` Using Code Interpreter, refactor the Java code in `{file_id}` by updating deprecated `{shorthand_method_name}` (imported as `{deprecated_method}`) to their Spring 5.x equivalents. Ensure changes are precise, avoiding alterations to unrelated class/method names and preserving original code functionality.",
+  "instructions": [
+    {
+      "step": "Identify Deprecated Usage",
+      "detail": "Find all occurrences of `{shorthand_method_name}`, excluding imports."
+    },
+    {
+      "step": "Plan Refactoring",
+      "detail": "For each occurrence, determine the Spring 5.x replacement."
+    },
+    {
+      "step": "Execute Refactoring",
+      "detail": "Replace deprecated usage with Spring 5.x equivalents, excluding related imports."
+    },
+    {
+      "step": "Review and Verify",
+      "detail": "Ensure all instances (excluding imports) are updated and the refactored code functions as intended. Finally, ensure imports are updated to match the changes."
+    }
+  ],
+  "conclusion": "Follow these steps to effectively upgrade the code, keeping its functionality intact."
 }

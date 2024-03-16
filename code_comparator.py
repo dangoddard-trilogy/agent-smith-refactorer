@@ -86,15 +86,11 @@ class CodeComparator:
         return cleaned_result  # Fallback return (should not be reached)
     
     def _interpret_analysis_result(self, analysis_result): 
-    
         """ Interprets the AI assistant's analysis result. 
-        
         Parameters: 
             analysis_result (str): The analysis result from the AI assistant. 
-            
         Returns: 
             bool: True if the analysis indicates the refactoring is correct, False otherwise. 
-        
         """ 
         logging.info("CodeComparator: Interpreting analysis result from AI.") # AI-GEN - CursorAI with GPT4 
         
@@ -111,6 +107,11 @@ class CodeComparator:
         result = analysis_result_json.get('result', 'No')  # AI-GEN - CursorAI with GPT4
         if isinstance(result, bool):  # Check if result is a boolean  # AI-GEN - CursorAI with GPT4
             return result  # Directly return the boolean value  # AI-GEN - CursorAI with GPT4
+        elif isinstance(result, list):  # Check if result is a list  # AI-GEN - CursorAI with GPT4
+            result = result[0].lower() if result else 'no'  # Take the first item if list is not empty and convert to lowercase  # AI-GEN - CursorAI with GPT4
+        elif isinstance(result, str):  # Check if result is a string  # AI-GEN - CursorAI with GPT4
+            result = result.lower()  # Convert to lowercase  # AI-GEN - CursorAI with GPT4
         else:
-            result = result.lower()  # Convert to lowercase if it's a string  # AI-GEN - CursorAI with GPT4
-            return result == 'yes'  # Return True if the result is 'Yes', False otherwise  # AI-GEN - CursorAI with GPT4
+            return False  # Return False if result is neither a list, string, nor boolean  # AI-GEN - CursorAI with GPT4
+
+        return result == 'yes'  # Return True if the result is 'yes', False

@@ -59,7 +59,7 @@ class RefactoringAgent:
 
         while not refactoring_success and refactoring_attempts < 5:
             logging.info(f"RefactoringAgent: Refactoring attempt {refactoring_attempts + 1} for file: {file_path}")  # AI-GEN - CursorAI with GPT4
-            refactored_file_id = self.refactor_code(original_file_id, deprecated_method)
+            refactored_file_id = self.refactor_code(original_file_id, deprecated_method, refactoring_attempts)
             
             # If refactor_code returns None, treat it as a failed attempt and continue to the next iteration
             if refactored_file_id is None:  # AI-GEN - CursorAI with GPT4
@@ -79,7 +79,7 @@ class RefactoringAgent:
             else:
                 refactoring_attempts += 1
                 # For subsequent attempts, the latest refactored version becomes the "original"
-                original_file_id = refactored_file_id
+                # original_file_id = refactored_file_id
                 logging.info(f"RefactoringAgent: Refactoring pass did not meet goals - will retry")
 
         if not refactoring_success:
@@ -94,11 +94,11 @@ class RefactoringAgent:
         return refactoring_success
 
 
-    def refactor_code(self, original_file_id, deprecated_method):
+    def refactor_code(self, original_file_id, deprecated_method, refactoring_attempts):
         """Initiates the refactoring process using the AssistantManager based on the rules."""
         logging.info("RefactoringAgent: Initiating code refactoring...")  # AI-GEN - CursorAI with GPT4
         # Retrieve the current set of rules
         rules = self.rule_manager.get_rules()
         # Directly use the file ID for refactoring, assuming suggest_refactoring now handles file IDs and returns a file ID
-        refactored_file_id = self.assistant_manager.suggest_refactoring(original_file_id, rules, deprecated_method)
+        refactored_file_id = self.assistant_manager.suggest_refactoring(original_file_id, rules, deprecated_method, refactoring_attempts)
         return refactored_file_id  # AI-GEN - CursorAI with GPT4

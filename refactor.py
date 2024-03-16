@@ -1,6 +1,7 @@
 import argparse
 import os
 import logging  # AI-GEN - CursorAI with GPT4
+from datetime import datetime
 from openai import OpenAI
 from assistant_manager import AssistantManager
 from refactoring_agent import RefactoringAgent
@@ -49,28 +50,36 @@ def main():
     try:
         args = parse_arguments()
 
-        # Configure logging based on the debug mode argument
-        if args.debug:
-            logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-        else:
-            logging.basicConfig(level=logging.WARN)
+        # Set up file logging
+        log_filename = f"refactor_log_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
+        logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', handlers=[logging.FileHandler(log_filename)])
 
-        print("Refactor: Initializing AssistantManager and RefactoringAgent.")  # AI-GEN - CursorAI with GPT4
-        # Instantiate the AssistantManager with API key, Assistant ID, and Organization ID
+        # Set up console logging based on --debug flag
+        console_handler = logging.StreamHandler()
+        console_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+        if args.debug:
+            console_handler.setLevel(logging.INFO)
+        else:
+            console_handler.setLevel(logging.WARN)
+        logging.getLogger().addHandler(console_handler)
+
+        # Ensure the root logger level is set to the lowest level among all handlers if needed
+        logging.getLogger().setLevel(min(logging.getLogger().level, console_handler.level))
+
+        # Prevent double logging in the console
+        logging.getLogger().propagate = False
+
+        print("Refactor: Initializing AssistantManager and RefactoringAgent.")
         assistant_manager = AssistantManager(set_api_key=args.api_key, assistant_id=args.assistant_id, organization_id=args.organization_id)
-        
-        # Instantiate the RefactoringAgent with the path to the source list, the rules file, and the AssistantManager
         refactoring_agent = RefactoringAgent(files_list_path=args.source_list, rules_path=args.rules, assistant_manager=assistant_manager, base_path=args.base_path)
         
-        print("Refactor: Starting the refactoring process.")  # AI-GEN - CursorAI with GPT4
-        # Start the refactoring process
+        print("Refactor: Starting the refactoring process.")
         refactoring_agent.start_refactoring_process()
     except Exception as e:
         logging.error(f"Refactor: An error occurred: {e}")
     finally:
-        # Ensure cleanup_files is called regardless of success or failure
-        assistant_manager.final_cleanup()  # AI-GEN - CursorAI with GPT4
-        print("Refactor: Cleanup complete.")  # AI-GEN - CursorAI with GPT4
+        assistant_manager.final_cleanup()
+        print("Refactor: Cleanup complete.")
         refactoring_agent.print_results()
 
 
