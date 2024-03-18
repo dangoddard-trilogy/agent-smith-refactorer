@@ -1,22 +1,54 @@
 {
-  "prompt": "`{rerun_notice}` Using Code Interpreter, refactor the Java code in `{file_id}` by updating deprecated `{shorthand_method_name}` (imported as `{deprecated_method}`) to their Spring 5.x equivalents. Ensure changes are precise, avoiding alterations to unrelated class/method names and preserving original code functionality.",
   "instructions": [
     {
+      "who": "code",
+      "input": "{file_path}",
+      "step": "Upload Source Code",
+      "detail": "Upload source code file from local machine to Agent workspace. Return the file_id.",
+      "subtask": {},
+      "return": {"source_file_id": "string"},
+      "result": {}
+    },
+    {
+      "who": "agent",
+      "input": "{source_file_id}, {deprecated_method}, {shorthand_method_name}",
       "step": "Identify Deprecated Usage",
-      "detail": "Find all occurrences of `{shorthand_method_name}`, excluding imports."
+      "detail": "In the `{source_file_id}` file, find all occurrences of `{shorthand_method_name}` and the full classpath method `{deprecated_method}`. Please return a JSON object listing the line number, the exact code snippet, and a brief summary of the context or how the method is used within the code. The output should follow this JSON structure: [{'line_number': 'string', 'code': 'string', 'summary': 'string'}]. Don't return anything else.",
+      "subtask": {},
+      "return": [{"line_number": "string", "code": "string", "summary": "string"}],
+      "result": {}
     },
     {
-      "step": "Plan Refactoring",
-      "detail": "For each occurrence, determine the Spring 5.x replacement."
+      "who": "code",
+      "step": "Plan Refactoring Master",
+      "input": {"result_from_step": "Identify Deprecated Usage"},
+      "command": "foreach",
+      "subtask": {
+        "who": "agent",
+        "step": "Plan Refactoring",
+        "input": {"line_number": "{line_number}", "code": "{code}", "summary": "{summary}"},
+        "detail": "For the occurrence of {code} on line number {line_number}, determine the Spring 5.x replacement. Return the refactoring instructions as a list of steps in JSON format [{ line_number, change }].",
+        "return": {"line_number": "string", "change": "string"},
+        "result": {}
+      },
+      "return": [{"line_number": "string", "change": "string"}],
+      "result": {}
     },
     {
+      "who": "agent",
+      "input": {"result_from_step": "Plan Refactoring Master"},
       "step": "Execute Refactoring",
-      "detail": "Replace deprecated usage with Spring 5.x equivalents, excluding related imports."
+      "detail": "Replace deprecated usage with Spring 5.x equivalents, excluding related imports. Make the changes to the code exactly as described in the brief. Do not change anything else. Save the changes to a new file_id.",
+      "return": {"new_file_id": "string"},
+      "result": {}
     },
     {
+      "who": "agent",
+      "input": "{new_file_id}, {source_file_id}",
       "step": "Review and Verify",
-      "detail": "Ensure all instances (excluding imports) are updated and the refactored code functions as intended. Finally, ensure imports are updated to match the changes."
+      "detail": "Ensure all instances (excluding imports) are updated and the refactored code functions as intended. Finally, ensure imports are updated to match the changes. Reply with a JSON object containing the following only: { 'Result' : ['Pass', 'Fail'], 'Details': {details} }",
+      "return": {"result": "string", "details": "string"},
+      "result": {}
     }
-  ],
-  "conclusion": "Follow these steps to effectively upgrade the code, keeping its functionality intact."
+  ]
 }

@@ -2,13 +2,5 @@
     {
       "path": "core/src/main/java/com/jivesoftware/community/activity/popularity/dao/impl/PopularityDAOImpl.java",
       "deprecatedMethod": "org.springframework.jdbc.core.simple.ParameterizedRowMapper"
-    },
-    {
-      "path": "core/src/main/java/com/jivesoftware/community/aaa/sso/saml/storage/SamlAuthnRequestDAOImpl.java",
-      "deprecatedMethod": "org.springframework.jdbc.core.simple.ParameterizedRowMapper"
-    },
-    {
-        "path": "core/src/main/java/com/jivesoftware/community/acclaim/dao/impl/AcclaimDAOImpl.java",
-        "deprecatedMethod": "org.springframework.jdbc.core.simple.ParameterizedRowMapper"
     }
 ]

@@ -3,7 +3,6 @@ import os
 import logging  # AI-GEN - CursorAI with GPT4
 from datetime import datetime
 from openai import OpenAI
-from assistant_manager import AssistantManager
 from refactoring_agent import RefactoringAgent
 
 def parse_arguments():
@@ -47,11 +46,12 @@ def parse_arguments():
     return parser.parse_args()
 
 def main():
+    refactoring_agent = None
     try:
         args = parse_arguments()
 
         # Set up file logging
-        log_filename = f"refactor_log_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
+        log_filename = f"./logs/refactor_log_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
         logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', handlers=[logging.FileHandler(log_filename)])
 
         # Set up console logging based on --debug flag
@@ -69,18 +69,18 @@ def main():
         # Prevent double logging in the console
         logging.getLogger().propagate = False
 
-        print("Refactor: Initializing AssistantManager and RefactoringAgent.")
-        assistant_manager = AssistantManager(set_api_key=args.api_key, assistant_id=args.assistant_id, organization_id=args.organization_id)
-        refactoring_agent = RefactoringAgent(files_list_path=args.source_list, rules_path=args.rules, assistant_manager=assistant_manager, base_path=args.base_path)
+        print("Refactor: Initializing RefactoringAgent.")
+        refactoring_agent = RefactoringAgent(files_list_path=args.source_list, rules_path=args.rules, base_path=args.base_path, api_key=args.api_key, assistant_id=args.assistant_id, organization_id=args.organization_id)  # AI-GEN - CursorAI with GPT4
         
         print("Refactor: Starting the refactoring process.")
         refactoring_agent.start_refactoring_process()
     except Exception as e:
         logging.error(f"Refactor: An error occurred: {e}")
     finally:
-        assistant_manager.final_cleanup()
-        print("Refactor: Cleanup complete.")
-        refactoring_agent.print_results()
+        if refactoring_agent is not None:
+            refactoring_agent.final_cleanup()
+            print("Refactor: Cleanup complete.")
+            refactoring_agent.print_results()
 
 
 if __name__ == "__main__":
