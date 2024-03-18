@@ -14,11 +14,11 @@ data_to_export = []
 with open(csv_file_path, mode='r', encoding='utf-8') as csv_file:
     csv_reader = csv.DictReader(csv_file)
     for row in csv_reader:
-        if row["Refactored?"] == "FAILED":  # Check if the "Refactored?" column is "FAILED"
-            data_to_export.append({
-                "path": row["file_path"],
-                "deprecatedMethod": row["line_content"]
-            })  # AI-GEN - CursorAI with GPT4
+        # if row["Refactored?"] == "FAILED":  # Check if the "Refactored?" column is "FAILED"
+        data_to_export.append({
+            "path": row["file_path"],
+            "deprecatedMethod": row["line_content"]
+        })  # AI-GEN - CursorAI with GPT4
 
 # Write the data to a JSON file
 with open(json_file_path, mode='w', encoding='utf-8') as json_file:
